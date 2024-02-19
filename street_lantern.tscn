@@ -1,0 +1,43 @@
+[gd_scene load_steps=6 format=3 uid="uid://dk2nlkvovn3sk"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1lq6b"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_5mmcp"]
+material = SubResource("StandardMaterial3D_1lq6b")
+top_radius = 0.1
+bottom_radius = 0.1
+height = 8.0
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_0edg5"]
+top_radius = 0.1
+bottom_radius = 0.1
+height = 2.5
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qr2x2"]
+emission_enabled = true
+emission = Color(0.831373, 0.968627, 1, 1)
+emission_energy_multiplier = 10.0
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_w4ik2"]
+material = SubResource("StandardMaterial3D_qr2x2")
+top_radius = 0.1
+bottom_radius = 0.1
+height = 1.5
+
+[node name="StreetLantern" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("CylinderMesh_5mmcp")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.340757, 0.940151, 0, -0.940151, 0.340757, 0, 0, 0, 1, 1.15703, 4.48278, 0)
+mesh = SubResource("CylinderMesh_0edg5")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.340757, 0.940151, 0, -0.940151, 0.340757, 0, 0, 0, 1, 1.61146, 4.42502, 0)
+mesh = SubResource("CylinderMesh_w4ik2")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="MeshInstance3D3"]
+transform = Transform3D(0.017412, 0.0480399, -0.998694, 0.340312, 0.938924, 0.051098, 0.940152, -0.340757, -2.4868e-08, 0, 0, 0)
+distance_fade_enabled = true
+spot_range = 10.0

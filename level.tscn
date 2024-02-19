@@ -1,0 +1,821 @@
+[gd_scene load_steps=56 format=3 uid="uid://bsblmlvncfxib"]
+
+[ext_resource type="PackedScene" uid="uid://caf2j1gyqn4n4" path="res://restaurant.tscn" id="1_qjrmy"]
+[ext_resource type="Script" path="res://level.gd" id="1_smiiu"]
+[ext_resource type="PackedScene" uid="uid://2oxdgu03lnbk" path="res://addons/character-controller/example/main/player.tscn" id="1_x5aie"]
+[ext_resource type="AudioStream" uid="uid://hxl8x64eb8af" path="res://seaside.wav" id="2_i2hb1"]
+[ext_resource type="Script" path="res://ghosts.gd" id="3_fvr0j"]
+[ext_resource type="VoxelGIData" uid="uid://utdfynn5hjox" path="res://level.VoxelGI_data.res" id="4_n60mx"]
+[ext_resource type="LightmapGIData" uid="uid://i12y0xi7dmfm" path="res://level.lmbake" id="5_bwt88"]
+[ext_resource type="PackedScene" uid="uid://dk2nlkvovn3sk" path="res://street_lantern.tscn" id="7_epmdv"]
+[ext_resource type="PackedScene" uid="uid://44wxjpemfog2" path="res://small_restaurant.tscn" id="8_npngb"]
+[ext_resource type="Script" path="res://last.gd" id="9_vag2w"]
+[ext_resource type="PackedScene" uid="uid://b50nmus7t2cq8" path="res://alley-light.tscn" id="10_062is"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_3p5j3"]
+
+[sub_resource type="Sky" id="Sky_mlm4j"]
+sky_material = SubResource("PanoramaSkyMaterial_3p5j3")
+
+[sub_resource type="Environment" id="Environment_yfve7"]
+background_mode = 2
+background_color = Color(0.0196078, 0, 0.0235294, 1)
+background_energy_multiplier = 0.0
+sky = SubResource("Sky_mlm4j")
+ssr_depth_tolerance = 78.31
+ssao_enabled = true
+sdfgi_read_sky_light = false
+glow_enabled = true
+glow_levels/1 = 1.0
+glow_levels/2 = 1.0
+glow_levels/6 = 1.0
+glow_levels/7 = 1.0
+glow_strength = 0.8
+glow_blend_mode = 4
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.003
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_lxge6"]
+size = Vector3(84.145, 3, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_mkfrn"]
+size = Vector3(100.79, 3, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_fghya"]
+size = Vector3(91.48, 3, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_8a11a"]
+size = Vector3(95.86, 3, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_i6ypl"]
+size = Vector3(1, 2, 6.82)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_uuai0"]
+size = Vector3(55.49, 3, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_n2jj8"]
+size = Vector3(57.695, 3, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_vffmu"]
+size = Vector3(47.71, 3, 1)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_nnva4"]
+points = PackedVector3Array(0.664048, 7.62958, 24.833, -0.888016, -7.88498, -24.833, 0.664048, -7.88498, -24.833, -0.888016, -7.88498, 24.833, -0.888016, 7.62958, -24.833, 0.664048, 7.62958, -24.833, 0.664048, -7.88498, 24.833, -0.888016, 7.62958, 24.833)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_uve7s"]
+points = PackedVector3Array(-0.5, -7.5, -34.7875, 0.5, -7.5, -34.7875, -0.5, -7.5, 34.7875, -0.5, 7.5, -34.7875, 0.5, 7.5, -34.7875, 0.5, -7.5, 34.7875, -0.5, 7.5, 34.7875, 0.5, 7.5, 34.7875)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_gbo3o"]
+points = PackedVector3Array(0.591071, 8.13869, 23.2762, -0.86369, -7.86369, -23.2762, 0.591071, -7.86369, -23.2762, -0.86369, -7.86369, 23.2762, -0.86369, 8.13869, -23.2762, 0.591071, 8.13869, -23.2762, 0.591071, -7.86369, 23.2762, -0.86369, 8.13869, 23.2762)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_n75oc"]
+points = PackedVector3Array(0.664048, 7.62958, 24.833, -0.888016, -7.88498, -24.833, 0.664048, -7.88498, -24.833, -0.888016, -7.88498, 24.833, -0.888016, 7.62958, -24.833, 0.664048, 7.62958, -24.833, 0.664048, -7.88498, 24.833, -0.888016, 7.62958, 24.833)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_4f2vk"]
+points = PackedVector3Array(0.76, 8.04, 26.88, -0.92, -7.92, -26.88, 0.76, -7.92, -26.88, -0.92, -7.92, 26.88, -0.92, 8.04, -26.88, 0.76, 8.04, -26.88, 0.76, -7.92, 26.88, -0.92, 8.04, 26.88)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_xf1yd"]
+points = PackedVector3Array(0.614765, 7.73512, 63.5416, -0.871588, -7.87159, -63.5416, 0.614765, -7.87159, -63.5416, -0.871588, -7.87159, 63.5416, -0.871588, 7.73512, -63.5416, 0.614765, 7.73512, -63.5416, 0.614765, -7.87159, 63.5416, -0.871588, 7.73512, 63.5416)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_f688a"]
+points = PackedVector3Array(0.735476, 7.73601, 26.3568, -0.911825, -7.91029, -26.3568, 0.735476, -7.91029, -26.3568, -0.911825, -7.91029, 26.3568, -0.911825, 7.73601, -26.3568, 0.735476, 7.73601, -26.3568, 0.735476, -7.91029, 26.3568, -0.911825, 7.73601, 26.3568)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_8pqim"]
+points = PackedVector3Array(1.66774, 7.67261, 46.2451, -1.22258, -8.22102, -46.2451, 1.66774, -8.22102, -46.2451, -1.22258, -8.22102, 46.2451, -1.22258, 7.67261, -46.2451, 1.66774, 7.67261, -46.2451, 1.66774, -8.22102, 46.2451, -1.22258, 7.67261, 46.2451)
+
+[sub_resource type="BoxMesh" id="BoxMesh_gsj1c"]
+size = Vector3(1, 15, 87.485)
+
+[sub_resource type="Curve" id="Curve_e0qtk"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.132597, 0.525751), 0.0, 0.0, 0, 0, Vector2(0.502762, 1), 0.0, 0.0, 0, 0, Vector2(0.892265, 0.518777), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 5
+
+[sub_resource type="CurveTexture" id="CurveTexture_ssmb7"]
+curve = SubResource("Curve_e0qtk")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_kcfr8"]
+emission_shape_scale = Vector3(3, 0, 20)
+emission_shape = 3
+emission_box_extents = Vector3(1, 1, 1)
+gravity = Vector3(0, 0, 0)
+alpha_curve = SubResource("CurveTexture_ssmb7")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lr0o7"]
+transparency = 3
+alpha_hash_scale = 1.0
+alpha_antialiasing_mode = 0
+vertex_color_use_as_albedo = true
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_mjxbj"]
+material = SubResource("StandardMaterial3D_lr0o7")
+radius = 0.35
+height = 1.75
+
+[sub_resource type="Shader" id="Shader_te5mw"]
+code = "// NOTE: Shader automatically converted from Godot Engine 4.2.stable's StandardMaterial3D.
+
+shader_type spatial;
+render_mode blend_mix,depth_draw_opaque,cull_back,diffuse_burley,specular_schlick_ggx;
+uniform vec4 albedo : source_color;
+uniform sampler2D texture_albedo : source_color,filter_linear_mipmap,repeat_enable;
+uniform float point_size : hint_range(0,128);
+uniform float roughness : hint_range(0,1);
+uniform sampler2D texture_metallic : hint_default_white,filter_linear_mipmap,repeat_enable;
+uniform vec4 metallic_texture_channel;
+uniform sampler2D texture_roughness : hint_roughness_r,filter_linear_mipmap,repeat_enable;
+uniform float specular;
+uniform float metallic;
+uniform sampler2D texture_normal : hint_roughness_normal,filter_linear_mipmap,repeat_enable;
+uniform float normal_scale : hint_range(-16,16);
+uniform sampler2D texture_heightmap : hint_default_black,filter_linear_mipmap,repeat_enable;
+uniform float heightmap_scale;
+uniform int heightmap_min_layers;
+uniform int heightmap_max_layers;
+uniform vec2 heightmap_flip;
+uniform vec3 uv1_scale;
+uniform vec3 uv1_offset;
+uniform vec3 uv2_scale;
+uniform vec3 uv2_offset;
+
+
+void vertex() {
+	UV=UV*uv1_scale.xy+uv1_offset.xy;
+}
+
+
+
+
+
+
+void fragment() {
+	vec2 base_uv = UV + (TIME * 0.01);
+	vec2 base_uv_alt = UV - (TIME * 0.01);
+	{
+		vec3 view_dir = normalize(normalize(-VERTEX + EYE_OFFSET) * mat3(TANGENT * heightmap_flip.x, -BINORMAL * heightmap_flip.y, NORMAL));
+		float depth = 1.0 - texture(texture_heightmap, base_uv).r;
+		vec2 ofs = base_uv - view_dir.xy * depth * heightmap_scale * 0.01;
+		base_uv=ofs;
+	}
+	vec4 albedo_tex = texture(texture_albedo,base_uv);
+	ALBEDO = albedo.rgb * albedo_tex.rgb;
+	float metallic_tex = dot(texture(texture_metallic,base_uv),metallic_texture_channel);
+	METALLIC = metallic_tex * metallic;
+	vec4 roughness_texture_channel = vec4(1.0,0.0,0.0,0.0);
+	float roughness_tex = dot(texture(texture_roughness,base_uv),roughness_texture_channel);
+	ROUGHNESS = roughness_tex * roughness;
+	SPECULAR = specular;
+	NORMAL_MAP = ((texture(texture_normal,base_uv) + texture(texture_normal, base_uv_alt))/2.0).rgb;
+	NORMAL_MAP_DEPTH = normal_scale;
+}
+"
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_8ew1a"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_qa5hw"]
+noise = SubResource("FastNoiseLite_8ew1a")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_d385o"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_bmi1m"]
+seamless = true
+as_normal_map = true
+noise = SubResource("FastNoiseLite_d385o")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_rwc2u"]
+render_priority = 0
+shader = SubResource("Shader_te5mw")
+shader_parameter/albedo = Color(1, 1, 1, 1)
+shader_parameter/point_size = 1.0
+shader_parameter/roughness = 0.0
+shader_parameter/metallic_texture_channel = null
+shader_parameter/specular = 0.5
+shader_parameter/metallic = 1.0
+shader_parameter/normal_scale = 1.0
+shader_parameter/heightmap_scale = 5.0
+shader_parameter/heightmap_min_layers = 8
+shader_parameter/heightmap_max_layers = 32
+shader_parameter/heightmap_flip = Vector2(1, 1)
+shader_parameter/uv1_scale = Vector3(1, 1, 1)
+shader_parameter/uv1_offset = Vector3(0, 0, 0)
+shader_parameter/uv2_scale = Vector3(1, 1, 1)
+shader_parameter/uv2_offset = Vector3(0, 0, 0)
+shader_parameter/texture_normal = SubResource("NoiseTexture2D_bmi1m")
+shader_parameter/texture_heightmap = SubResource("NoiseTexture2D_qa5hw")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_6osuj"]
+material = SubResource("ShaderMaterial_rwc2u")
+size = Vector2(180, 200)
+subdivide_width = 50
+subdivide_depth = 50
+
+[sub_resource type="BoxMesh" id="BoxMesh_rw1am"]
+lightmap_size_hint = Vector2i(253, 400)
+size = Vector3(1, 15, 48.89)
+
+[sub_resource type="BoxMesh" id="BoxMesh_fx673"]
+lightmap_size_hint = Vector2i(253, 400)
+size = Vector3(1, 15, 45.825)
+
+[sub_resource type="BoxMesh" id="BoxMesh_6i7yi"]
+lightmap_size_hint = Vector2i(253, 400)
+size = Vector3(1, 15, 69.575)
+
+[sub_resource type="BoxMesh" id="BoxMesh_82vnr"]
+size = Vector3(1, 15, 52.92)
+
+[sub_resource type="BoxMesh" id="BoxMesh_goj0r"]
+size = Vector3(1, 15, 126.34)
+
+[sub_resource type="BoxMesh" id="BoxMesh_0bp44"]
+size = Vector3(1, 15, 51.89)
+
+[sub_resource type="BoxMesh" id="BoxMesh_n3n52"]
+size = Vector3(1, 15, 91.045)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_r6gdj"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_sydom"]
+noise = SubResource("FastNoiseLite_r6gdj")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4l6dm"]
+roughness = 0.49
+roughness_texture = SubResource("NoiseTexture2D_sydom")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_gqn3o"]
+size = Vector3(16.075, 4.39, 55.555)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_b3meb"]
+size = Vector3(1, 3, 53.83)
+
+[node name="Node3D" type="Node3D"]
+script = ExtResource("1_smiiu")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_yfve7")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.902916, 0.429818, 0, -0.429818, 0.902916, 0, 0, 0)
+visible = false
+light_color = Color(0.00784314, 0, 0.0196078, 1)
+
+[node name="DirectionalLight3D2" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.902916, 0.429818, 0, -0.429818, 0.902916, 0, 0, 0)
+visible = false
+light_color = Color(0.937255, 0.992157, 1, 1)
+
+[node name="path" type="Node3D" parent="."]
+
+[node name="floor" type="CSGBox3D" parent="path"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 45.3865, -5, 0)
+use_collision = true
+size = Vector3(100, 10, 28)
+
+[node name="restriction" type="StaticBody3D" parent="path"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.51334, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="path/restriction"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 38.9064, 0, 3.5)
+shape = SubResource("BoxShape3D_lxge6")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="path/restriction"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 47.1455, 0, -3.5)
+shape = SubResource("BoxShape3D_mkfrn")
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="path/restriction"]
+transform = Transform3D(0.944198, 0, -0.329378, 0, 1, 0, 0.329378, 0, 0.944198, 124.604, 1.90735e-06, 18.4467)
+shape = SubResource("BoxShape3D_fghya")
+
+[node name="CollisionShape3D5" type="CollisionShape3D" parent="path/restriction"]
+transform = Transform3D(0.944198, 0, -0.329378, 0, 1, 0, 0.329378, 0, 0.944198, 141.989, 0, 12.2321)
+shape = SubResource("BoxShape3D_8a11a")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="path/restriction"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.23957, -0.523431, 0)
+shape = SubResource("BoxShape3D_i6ypl")
+
+[node name="CollisionShape3D6" type="CollisionShape3D" parent="path/restriction"]
+transform = Transform3D(0.564967, 0, -0.825113, 0, 1, 0, 0.825113, 0, 0.564967, 202.472, 0.0372229, 50.6434)
+shape = SubResource("BoxShape3D_uuai0")
+
+[node name="CollisionShape3D7" type="CollisionShape3D" parent="path/restriction"]
+transform = Transform3D(0.564967, 0, -0.825113, 0, 1, 0, 0.825113, 0, 0.564967, 183.372, 0.0372229, 56.2602)
+shape = SubResource("BoxShape3D_n2jj8")
+
+[node name="CollisionShape3D8" type="CollisionShape3D" parent="path/restriction"]
+transform = Transform3D(-0.0796245, 0, -0.996824, 0, 1, 0, 0.996824, 0, -0.0796245, 197.598, 0.0372238, 103.412)
+shape = SubResource("BoxShape3D_vffmu")
+
+[node name="CollisionShape3D9" type="CollisionShape3D" parent="path/restriction"]
+transform = Transform3D(-0.876357, 0, 0.481662, 0, 1, 0, -0.481662, 0, -0.876357, 201.42, 4.9, 156.401)
+shape = SubResource("ConvexPolygonShape3D_nnva4")
+
+[node name="CollisionShape3D10" type="CollisionShape3D" parent="path/restriction"]
+transform = Transform3D(-0.997467, 0, 0.071132, 0, 1, 0, -0.071132, 0, -0.997467, 215.476, 4.9, 102.484)
+shape = SubResource("ConvexPolygonShape3D_uve7s")
+
+[node name="CollisionShape3D11" type="CollisionShape3D" parent="path/restriction"]
+transform = Transform3D(-0.988481, 0, -0.151347, 0, 1, 0, 0.151347, 0, -0.988481, 192.492, 4.9, 104.673)
+shape = SubResource("ConvexPolygonShape3D_gbo3o")
+
+[node name="CollisionShape3D12" type="CollisionShape3D" parent="path/restriction"]
+transform = Transform3D(-0.880154, 0, 0.474688, 0, 1, 0, -0.474688, 0, -0.880154, 184.448, 4.9, 148.429)
+shape = SubResource("ConvexPolygonShape3D_n75oc")
+
+[node name="CollisionShape3D13" type="CollisionShape3D" parent="path/restriction"]
+transform = Transform3D(-0.449272, 0, 0.893395, 0, 1, 0, -0.893395, 0, -0.449272, 149.574, 4.9, 181.284)
+shape = SubResource("ConvexPolygonShape3D_4f2vk")
+
+[node name="CollisionShape3D14" type="CollisionShape3D" parent="path/restriction"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 61.5856, 4.89999, 208.616)
+shape = SubResource("ConvexPolygonShape3D_xf1yd")
+
+[node name="CollisionShape3D15" type="CollisionShape3D" parent="path/restriction"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 100.515, 4.89999, 193.098)
+shape = SubResource("ConvexPolygonShape3D_f688a")
+
+[node name="CollisionShape3D16" type="CollisionShape3D" parent="path/restriction"]
+transform = Transform3D(-0.422602, 0, 0.906315, 0, 1, 0, -0.906315, 0, -0.422602, 154.84, 4.9, 193.476)
+shape = SubResource("ConvexPolygonShape3D_8pqim")
+
+[node name="restaurant" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.57321, 10.1958)
+
+[node name="Restaurant" parent="restaurant" instance=ExtResource("1_qjrmy")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.315047, -1.22464, 0.897073)
+
+[node name="Restaurant2" parent="restaurant" instance=ExtResource("1_qjrmy")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 7.94545, -1.22464, 0.912857)
+
+[node name="Restaurant3" parent="restaurant" instance=ExtResource("1_qjrmy")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 14.9773, -1.22464, 0.912857)
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="restaurant/Restaurant3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.8929, 0, 1.90735e-06)
+stream = ExtResource("2_i2hb1")
+autoplay = true
+max_distance = 100.0
+
+[node name="AudioStreamPlayer3D2" type="AudioStreamPlayer3D" parent="restaurant/Restaurant3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.3094, 0, 12.3946)
+stream = ExtResource("2_i2hb1")
+autoplay = true
+max_distance = 100.0
+
+[node name="Restaurant4" parent="restaurant" instance=ExtResource("1_qjrmy")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 22.6699, -1.22464, 0.912857)
+
+[node name="Restaurant6" parent="restaurant" instance=ExtResource("1_qjrmy")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.31583, -1.22464, -21.3134)
+
+[node name="Restaurant7" parent="restaurant" instance=ExtResource("1_qjrmy")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 7.94545, -1.22464, -21.3134)
+
+[node name="Restaurant8" parent="restaurant" instance=ExtResource("1_qjrmy")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 14.9773, -1.22464, -21.3134)
+
+[node name="Restaurant9" parent="restaurant" instance=ExtResource("1_qjrmy")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 22.6699, -1.22464, -21.3134)
+
+[node name="section2" type="Node3D" parent="restaurant"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.7504, 0, 0.000508308)
+
+[node name="Restaurant5" parent="restaurant/section2" instance=ExtResource("1_qjrmy")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 1.38134, -1.22464, 0.912857)
+threshold = 0.7
+
+[node name="Restaurant10" parent="restaurant/section2" instance=ExtResource("1_qjrmy")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 9.01097, -1.22464, 0.912857)
+threshold = 0.7
+
+[node name="Restaurant12" parent="restaurant/section2" instance=ExtResource("1_qjrmy")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 23.7354, -1.22464, 0.912857)
+threshold = 0.7
+
+[node name="Restaurant13" parent="restaurant/section2" instance=ExtResource("1_qjrmy")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 1.38134, -1.22464, -21.3134)
+threshold = 0.7
+
+[node name="AudioStreamPlayer3D2" type="AudioStreamPlayer3D" parent="restaurant/section2/Restaurant13"]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 0, 0)
+stream = ExtResource("2_i2hb1")
+unit_size = 20.0
+autoplay = true
+max_distance = 100.0
+
+[node name="Restaurant14" parent="restaurant/section2" instance=ExtResource("1_qjrmy")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 9.01097, -1.22464, -21.3134)
+threshold = 0.7
+
+[node name="Restaurant15" parent="restaurant/section2" instance=ExtResource("1_qjrmy")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 16.0428, -1.22464, -21.3134)
+threshold = 0.7
+
+[node name="AudioStreamPlayer3D3" type="AudioStreamPlayer3D" parent="restaurant/section2/Restaurant15"]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -11.2654, 4.40145, 0)
+stream = ExtResource("2_i2hb1")
+unit_size = 20.0
+autoplay = true
+max_distance = 100.0
+
+[node name="Restaurant16" parent="restaurant/section2" instance=ExtResource("1_qjrmy")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 23.7354, -1.22464, -21.3134)
+threshold = 0.7
+
+[node name="section3" type="Node3D" parent="restaurant"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 59.9199, 0, -0.07932)
+
+[node name="Restaurant5" parent="restaurant/section3" instance=ExtResource("1_qjrmy")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 1.38134, -1.22464, 0.912857)
+threshold = 0.4
+
+[node name="Restaurant10" parent="restaurant/section3" instance=ExtResource("1_qjrmy")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 9.01097, -1.22464, 0.912857)
+threshold = 0.4
+
+[node name="Restaurant11" parent="restaurant/section3" instance=ExtResource("1_qjrmy")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 16.0428, -1.22464, 0.912857)
+threshold = 0.2
+
+[node name="Restaurant17" parent="restaurant/section3" instance=ExtResource("1_qjrmy")]
+transform = Transform3D(-0.302852, 0, -0.953037, 0, 1, 0, 0.953037, 0, -0.302852, 39.1431, -1.22464, 10.6096)
+threshold = 0.2
+
+[node name="Restaurant18" parent="restaurant/section3" instance=ExtResource("1_qjrmy")]
+transform = Transform3D(-0.302852, 0, -0.953037, 0, 1, 0, 0.953037, 0, -0.302852, 78.7274, -1.22464, 21.8826)
+threshold = 0.2
+
+[node name="AudioStreamPlayer3D4" type="AudioStreamPlayer3D" parent="restaurant/section3/Restaurant18"]
+transform = Transform3D(0.953038, 0, 0.302852, 0, 1, 0, -0.302852, 0, 0.953038, -1.00083, 0, 66.0915)
+stream = ExtResource("2_i2hb1")
+unit_size = 20.0
+autoplay = true
+max_distance = 70.0
+
+[node name="Restaurant19" parent="restaurant/section3" instance=ExtResource("1_qjrmy")]
+transform = Transform3D(0.329888, 0, 0.944019, 0, 1, 0, -0.944019, 0, 0.329888, 68.347, -1.22464, -12.1527)
+threshold = 0.2
+
+[node name="Restaurant12" parent="restaurant/section3" instance=ExtResource("1_qjrmy")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 23.7354, -1.22464, 0.912857)
+visible = false
+threshold = 0.2
+
+[node name="Restaurant13" parent="restaurant/section3" instance=ExtResource("1_qjrmy")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 1.38134, -1.22464, -21.3134)
+threshold = 0.4
+
+[node name="AudioStreamPlayer3D3" type="AudioStreamPlayer3D" parent="restaurant/section3/Restaurant13"]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 0, 0)
+stream = ExtResource("2_i2hb1")
+unit_size = 20.0
+autoplay = true
+max_distance = 80.0
+
+[node name="Restaurant14" parent="restaurant/section3" instance=ExtResource("1_qjrmy")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 9.01097, -1.22464, -21.3134)
+threshold = 0.4
+
+[node name="building2" type="MeshInstance3D" parent="restaurant/section3/Restaurant14"]
+transform = Transform3D(1, 0, -3.55271e-15, 0, 1, 0, 3.55271e-15, 0, 1, 3.045, 6.41334, -27.7483)
+mesh = SubResource("BoxMesh_gsj1c")
+
+[node name="Restaurant15" parent="restaurant/section3" instance=ExtResource("1_qjrmy")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 16.0428, -1.22464, -21.3134)
+threshold = 0.2
+
+[node name="Restaurant16" parent="restaurant/section3" instance=ExtResource("1_qjrmy")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 23.7354, -1.22464, -21.3134)
+threshold = 0.2
+
+[node name="Player" parent="." instance=ExtResource("1_x5aie")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 1.15744, -0.0531503)
+collision_layer = 2
+step_bob_enabled = false
+jump_bob_enabled = false
+rotation_to_move = false
+speed = 30
+abilities_path = Array[NodePath]([NodePath("Walk Ability 3D"), NodePath("Jump Ability 3D")])
+
+[node name="AudioListener3D" type="AudioListener3D" parent="Player"]
+current = true
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 1, 0)
+amount = 100
+lifetime = 7.0
+preprocess = 8.0
+visibility_aabb = AABB(-4, -1, -4, 8, 2, 8)
+process_material = SubResource("ParticleProcessMaterial_kcfr8")
+draw_pass_1 = SubResource("CapsuleMesh_mjxbj")
+script = ExtResource("3_fvr0j")
+
+[node name="water" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 79.4353, -4.87309, 94.26)
+mesh = SubResource("PlaneMesh_6osuj")
+
+[node name="ReflectionProbe" type="ReflectionProbe" parent="water"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -50.793, 8.77999, 5.32703)
+size = Vector3(98.62, 23.27, 220)
+box_projection = true
+
+[node name="VoxelGI" type="VoxelGI" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.4565, 1, 0.191638)
+visible = false
+size = Vector3(30.91, 2, 25)
+data = ExtResource("4_n60mx")
+
+[node name="LightmapGI" type="LightmapGI" parent="."]
+quality = 0
+bounces = 2
+light_data = ExtResource("5_bwt88")
+
+[node name="street" type="Node3D" parent="."]
+
+[node name="floor2" type="CSGBox3D" parent="street"]
+transform = Transform3D(0.956305, 0, -0.292372, 0, 1, 0, 0.292372, 0, 0.956305, 135.128, -5, 16.129)
+use_collision = true
+size = Vector3(110.885, 10, 34.54)
+
+[node name="StreetLantern" parent="street" instance=ExtResource("7_epmdv")]
+transform = Transform3D(-0.245612, 0, -0.969368, 0, 1, 0, 0.969368, 0, -0.245612, 93.7034, 3.54463, -8.58671)
+
+[node name="StreetLantern2" parent="street" instance=ExtResource("7_epmdv")]
+transform = Transform3D(-0.245612, 0, -0.969368, 0, 1, 0, 0.969368, 0, -0.245612, 107.014, 3.51832, -5.06135)
+
+[node name="StreetLantern3" parent="street" instance=ExtResource("7_epmdv")]
+transform = Transform3D(-0.245612, 0, -0.969368, 0, 1, 0, 0.969368, 0, -0.245612, 119.761, 3.54463, -1.61767)
+
+[node name="StreetLantern4" parent="street" instance=ExtResource("7_epmdv")]
+transform = Transform3D(-0.245612, 0, -0.969368, 0, 1, 0, 0.969368, 0, -0.245612, 134.278, 3.54463, 3.5562)
+
+[node name="StreetLantern5" parent="street" instance=ExtResource("7_epmdv")]
+transform = Transform3D(-0.245612, 0, -0.969368, 0, 1, 0, 0.969368, 0, -0.245612, 147.589, 3.51832, 7.08156)
+
+[node name="StreetLantern6" parent="street" instance=ExtResource("7_epmdv")]
+transform = Transform3D(-0.245612, 0, -0.969368, 0, 1, 0, 0.969368, 0, -0.245612, 160.335, 3.54463, 10.5252)
+
+[node name="StreetLantern7" parent="street" instance=ExtResource("7_epmdv")]
+transform = Transform3D(-0.245612, 0, -0.969368, 0, 1, 0, 0.969368, 0, -0.245612, 170.24, 3.54463, 14.3186)
+
+[node name="StreetLantern8" parent="street" instance=ExtResource("7_epmdv")]
+transform = Transform3D(-0.245612, 0, -0.969368, 0, 1, 0, 0.969368, 0, -0.245612, 183.551, 3.51832, 17.844)
+
+[node name="building2" type="MeshInstance3D" parent="street"]
+transform = Transform3D(-0.293507, 0, -0.955957, 0, 1, 0, 0.955957, 0, -0.293507, 120.601, 6.41334, 29.5726)
+mesh = SubResource("BoxMesh_gsj1c")
+
+[node name="small_street" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 188.541, 0, 33.768)
+
+[node name="floor3" type="CSGBox3D" parent="small_street"]
+transform = Transform3D(0.564967, 0, -0.825113, 0, 1, 0, 0.825113, 0, 0.564967, 6.6225, -5, 19.4517)
+use_collision = true
+size = Vector3(61.245, 9.99, 41.31)
+
+[node name="floor4" type="CSGBox3D" parent="small_street"]
+transform = Transform3D(0.0367658, 0, -0.999324, 0, 1, 0, 0.999324, 0, 0.0367658, 19.2688, -5, 58.7449)
+use_collision = true
+size = Vector3(61.245, 10, 42.755)
+
+[node name="SmallRestaurant" parent="small_street" instance=ExtResource("8_npngb")]
+transform = Transform3D(-0.830392, 0, -0.55718, 0, 1, 0, 0.55718, 0, -0.830392, 16.129, 0.321802, 12.7287)
+
+[node name="AudioStreamPlayer3D5" type="AudioStreamPlayer3D" parent="small_street/SmallRestaurant"]
+transform = Transform3D(0.55718, 0, 0.830392, 0, 1, 0, -0.830392, 0, 0.55718, 0, 0, 0)
+stream = ExtResource("2_i2hb1")
+unit_size = 60.0
+autoplay = true
+max_distance = 50.0
+
+[node name="StreetLantern8" parent="small_street" instance=ExtResource("7_epmdv")]
+transform = Transform3D(0.812521, 0, 0.582931, 0, 1, 0, -0.582931, 0, 0.812521, -19.451, 3.51832, 9.189)
+
+[node name="StreetLantern9" parent="small_street" instance=ExtResource("7_epmdv")]
+transform = Transform3D(0.812521, 0, 0.582931, 0, 1, 0, -0.582931, 0, 0.812521, -13.5291, 3.51832, 17.9589)
+
+[node name="StreetLantern10" parent="small_street" instance=ExtResource("7_epmdv")]
+transform = Transform3D(0.812521, 0, 0.582931, 0, 1, 0, -0.582931, 0, 0.812521, -8.53366, 3.51832, 25.7428)
+
+[node name="StreetLantern11" parent="small_street" instance=ExtResource("7_epmdv")]
+transform = Transform3D(0.812521, 0, 0.582931, 0, 1, 0, -0.582931, 0, 0.812521, -2.04715, 3.51832, 35.4167)
+
+[node name="StreetLantern12" parent="small_street" instance=ExtResource("7_epmdv")]
+transform = Transform3D(0.812521, 0, 0.582931, 0, 1, 0, -0.582931, 0, 0.812521, 3.69528, 3.51832, 43.8995)
+
+[node name="building2" type="MeshInstance3D" parent="small_street"]
+transform = Transform3D(-0.832854, 0, -0.553493, 0, 1, 0, 0.553493, 0, -0.832854, -12.9723, 6.41334, 28.3788)
+mesh = SubResource("BoxMesh_rw1am")
+
+[node name="building3" type="MeshInstance3D" parent="small_street"]
+transform = Transform3D(-0.988481, 0, -0.151347, 0, 1, 0, 0.151347, 0, -0.988481, 3.95102, 6.41334, 70.9045)
+mesh = SubResource("BoxMesh_fx673")
+
+[node name="building4" type="MeshInstance3D" parent="small_street"]
+transform = Transform3D(-0.880154, 0, 0.474688, 0, 1, 0, -0.474688, 0, -0.880154, -4.09302, 6.41334, 114.661)
+mesh = SubResource("BoxMesh_rw1am")
+
+[node name="building7" type="MeshInstance3D" parent="small_street"]
+transform = Transform3D(-0.876357, 0, 0.481662, 0, 1, 0, -0.481662, 0, -0.876357, 12.879, 6.41334, 122.633)
+mesh = SubResource("BoxMesh_rw1am")
+
+[node name="Alley-light" parent="small_street/building7" instance=ExtResource("10_062is")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.63414, -3.43672, 16.9157)
+
+[node name="Alley-light3" parent="small_street/building7" instance=ExtResource("10_062is")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.645477, -3.43672, -15.1974)
+
+[node name="building9" type="MeshInstance3D" parent="small_street"]
+transform = Transform3D(-0.997467, 0, 0.071132, 0, 1, 0, -0.071132, 0, -0.997467, 26.9346, 6.41334, 68.7161)
+mesh = SubResource("BoxMesh_6i7yi")
+
+[node name="Alley-light" parent="small_street/building9" instance=ExtResource("10_062is")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.975739, -3.43672, -0.151848)
+
+[node name="building5" type="MeshInstance3D" parent="small_street"]
+transform = Transform3D(-0.449272, 0, 0.893395, 0, 1, 0, -0.893395, 0, -0.449272, -38.9673, 6.41334, 147.516)
+mesh = SubResource("BoxMesh_82vnr")
+
+[node name="building8" type="MeshInstance3D" parent="small_street"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -126.955, 6.41333, 174.848)
+mesh = SubResource("BoxMesh_goj0r")
+
+[node name="Alley-light3" parent="small_street/building8" instance=ExtResource("10_062is")]
+transform = Transform3D(1, 0, -5.96046e-08, 0, 1, 0, 5.96046e-08, 0, 1, 0.716476, -3.43672, -15.2089)
+
+[node name="Alley-light4" parent="small_street/building8" instance=ExtResource("10_062is")]
+transform = Transform3D(1, 0, -5.96046e-08, 0, 1, 0, 5.96046e-08, 0, 1, 0.716476, -3.43672, 13.011)
+
+[node name="Alley-light5" parent="small_street/building8" instance=ExtResource("10_062is")]
+transform = Transform3D(1, 0, -5.96046e-08, 0, 1, 0, 5.96046e-08, 0, 1, 0.716476, -3.43672, 43.5929)
+
+[node name="building10" type="MeshInstance3D" parent="small_street"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -88.0265, 6.41333, 159.33)
+mesh = SubResource("BoxMesh_0bp44")
+
+[node name="building6" type="MeshInstance3D" parent="small_street"]
+transform = Transform3D(-0.422602, 0, 0.906315, 0, 1, 0, -0.906315, 0, -0.422602, -33.7011, 6.41334, 159.708)
+mesh = SubResource("BoxMesh_n3n52")
+
+[node name="Alley-light3" parent="small_street/building6" instance=ExtResource("10_062is")]
+transform = Transform3D(1, 0, -5.96046e-08, 0, 1, 0, 5.96046e-08, 0, 1, 0.720032, -3.43672, -15.2089)
+
+[node name="Alley-light4" parent="small_street/building6" instance=ExtResource("10_062is")]
+transform = Transform3D(1, 0, -1.19209e-07, 0, 1, 0, 1.19209e-07, 0, 1, 0.734909, -3.43672, 10.81)
+
+[node name="alley" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 200.327, 3.8147e-06, 145.998)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="alley"]
+transform = Transform3D(0.880055, 0, -0.474872, 0, 1, 0, 0.474872, 0, 0.880055, -2.01, -0.5, -5.355)
+use_collision = true
+size = Vector3(18.11, 0.99, 82.96)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="alley"]
+transform = Transform3D(0.422824, 0, -0.906212, 0, 1, 0, 0.906212, 0, 0.422824, -50.2539, -0.5, 40.7578)
+use_collision = true
+size = Vector3(18.11, 1, 82.96)
+material = SubResource("StandardMaterial3D_4l6dm")
+
+[node name="ReflectionProbe" type="ReflectionProbe" parent="alley/CSGBox3D2"]
+transform = Transform3D(1, 0, -1.49012e-07, 0, 1, 0, 1.49012e-07, 0, 1, 0.853455, 7.36145, -7.03001)
+size = Vector3(20, 13.95, 51.955)
+
+[node name="AudioStreamPlayer3D3" type="AudioStreamPlayer3D" parent="alley/CSGBox3D2"]
+transform = Transform3D(-1, 0, 2.08616e-07, 0, 1, 0, -2.08616e-07, 0, -1, -0.787704, 18.8051, -31.277)
+stream = ExtResource("2_i2hb1")
+unit_size = 20.0
+autoplay = true
+max_distance = 80.0
+bus = &"weird"
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="alley"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -128.745, -0.5, 54.2472)
+use_collision = true
+size = Vector3(18.11, 0.99, 104.43)
+
+[node name="Area3D" type="Area3D" parent="alley/CSGBox3D3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.31516, 0)
+collision_mask = 2
+reverb_bus_amount = 0.3
+script = ExtResource("9_vag2w")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="alley/CSGBox3D3/Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.78302, 24.729)
+shape = SubResource("BoxShape3D_gqn3o")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="alley/CSGBox3D3"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="alley/CSGBox3D3/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.12222, 1.94198, 22.9125)
+shape = SubResource("BoxShape3D_b3meb")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="alley/CSGBox3D3/StaticBody3D"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 19.0233, 1.94198, 49.3683)
+shape = SubResource("BoxShape3D_b3meb")
+
+[node name="restaurant_mirror" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 11.7292)
+visible = false
+
+[node name="Restaurant" parent="restaurant_mirror" instance=ExtResource("1_qjrmy")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.31583, -13.2549, 0.912857)
+
+[node name="Restaurant2" parent="restaurant_mirror" instance=ExtResource("1_qjrmy")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 7.94545, -13.2549, 0.912857)
+
+[node name="Restaurant3" parent="restaurant_mirror" instance=ExtResource("1_qjrmy")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 14.9773, -13.2549, 0.912857)
+
+[node name="Restaurant4" parent="restaurant_mirror" instance=ExtResource("1_qjrmy")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 22.6699, -13.2549, 0.912857)
+
+[node name="Restaurant6" parent="restaurant_mirror" instance=ExtResource("1_qjrmy")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.31583, -13.2549, -21.3134)
+
+[node name="Restaurant7" parent="restaurant_mirror" instance=ExtResource("1_qjrmy")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 7.94545, -13.2549, -21.3134)
+
+[node name="Restaurant8" parent="restaurant_mirror" instance=ExtResource("1_qjrmy")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 14.9773, -13.2549, -21.3134)
+
+[node name="Restaurant9" parent="restaurant_mirror" instance=ExtResource("1_qjrmy")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 22.6699, -13.2549, -21.3134)
+
+[node name="section2" type="Node3D" parent="restaurant_mirror"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.7504, -12.0302, 0.000508308)
+
+[node name="Restaurant5" parent="restaurant_mirror/section2" instance=ExtResource("1_qjrmy")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 1.38134, -1.22464, 0.912857)
+threshold = 0.7
+
+[node name="Restaurant10" parent="restaurant_mirror/section2" instance=ExtResource("1_qjrmy")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 9.01097, -1.22464, 0.912857)
+threshold = 0.7
+
+[node name="Restaurant12" parent="restaurant_mirror/section2" instance=ExtResource("1_qjrmy")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 23.7354, -1.22464, 0.912857)
+threshold = 0.7
+
+[node name="Restaurant13" parent="restaurant_mirror/section2" instance=ExtResource("1_qjrmy")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 1.38134, -1.22464, -21.3134)
+threshold = 0.7
+
+[node name="Restaurant14" parent="restaurant_mirror/section2" instance=ExtResource("1_qjrmy")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 9.01097, -1.22464, -21.3134)
+threshold = 0.7
+
+[node name="Restaurant15" parent="restaurant_mirror/section2" instance=ExtResource("1_qjrmy")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 16.0428, -1.22464, -21.3134)
+threshold = 0.7
+
+[node name="Restaurant16" parent="restaurant_mirror/section2" instance=ExtResource("1_qjrmy")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 23.7354, -1.22464, -21.3134)
+threshold = 0.7
+
+[node name="section3" type="Node3D" parent="restaurant_mirror"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 59.9199, -12.0302, -0.07932)
+
+[node name="Restaurant5" parent="restaurant_mirror/section3" instance=ExtResource("1_qjrmy")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 1.38134, -1.22464, 0.912857)
+threshold = 0.4
+
+[node name="Restaurant10" parent="restaurant_mirror/section3" instance=ExtResource("1_qjrmy")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 9.01097, -1.22464, 0.912857)
+threshold = 0.4
+
+[node name="Restaurant11" parent="restaurant_mirror/section3" instance=ExtResource("1_qjrmy")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 16.0428, -1.22464, 0.912857)
+threshold = 0.2
+
+[node name="Restaurant12" parent="restaurant_mirror/section3" instance=ExtResource("1_qjrmy")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 23.7354, -1.22464, 0.912857)
+visible = false
+threshold = 0.2
+
+[node name="Restaurant13" parent="restaurant_mirror/section3" instance=ExtResource("1_qjrmy")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 1.38134, -1.22464, -21.3134)
+threshold = 0.4
+
+[node name="Restaurant14" parent="restaurant_mirror/section3" instance=ExtResource("1_qjrmy")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 9.01097, -1.22464, -21.3134)
+threshold = 0.4
+
+[node name="building2" type="MeshInstance3D" parent="restaurant_mirror/section3/Restaurant14"]
+transform = Transform3D(1, 0, -3.55271e-15, 0, 1, 0, 3.55271e-15, 0, 1, 3.045, 6.41334, -27.7483)
+mesh = SubResource("BoxMesh_gsj1c")
+
+[node name="Restaurant15" parent="restaurant_mirror/section3" instance=ExtResource("1_qjrmy")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 16.0428, -1.22464, -21.3134)
+threshold = 0.2
+
+[node name="Restaurant16" parent="restaurant_mirror/section3" instance=ExtResource("1_qjrmy")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 23.7354, -1.22464, -21.3134)
+threshold = 0.2
+
+[node name="AudioListener3D" type="AudioListener3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 35.118, 3.8147e-06, 55.0652)
+
+[connection signal="area_entered" from="alley/CSGBox3D3/Area3D" to="alley/CSGBox3D3/Area3D" method="_on_area_entered"]
+[connection signal="area_exited" from="alley/CSGBox3D3/Area3D" to="alley/CSGBox3D3/Area3D" method="_on_area_exited"]
+[connection signal="body_entered" from="alley/CSGBox3D3/Area3D" to="alley/CSGBox3D3/Area3D" method="_on_body_entered"]
+[connection signal="body_exited" from="alley/CSGBox3D3/Area3D" to="alley/CSGBox3D3/Area3D" method="_on_body_exited"]

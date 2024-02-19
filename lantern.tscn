@@ -1,0 +1,35 @@
+[gd_scene load_steps=4 format=3 uid="uid://fp541o48u7dj"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_6xq7a"]
+lightmap_size_hint = Vector2i(5, 15)
+add_uv2 = true
+top_radius = 0.08
+bottom_radius = 0.1
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_e1bkj"]
+emission_enabled = true
+emission = Color(1, 0.592157, 0.301961, 1)
+emission_energy_multiplier = 20.0
+
+[sub_resource type="SphereMesh" id="SphereMesh_m31s4"]
+lightmap_size_hint = Vector2i(5, 3)
+material = SubResource("StandardMaterial3D_e1bkj")
+add_uv2 = true
+radius = 0.1
+height = 0.2
+
+[node name="Lantern" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("CylinderMesh_6xq7a")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.13027, 0)
+mesh = SubResource("SphereMesh_m31s4")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="MeshInstance3D2"]
+light_color = Color(1, 0.713726, 0.380392, 1)
+light_energy = 0.1
+light_indirect_energy = 0.0
+light_volumetric_fog_energy = 10.0
+light_bake_mode = 0

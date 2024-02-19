@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=3 uid="uid://htvmp103t0of"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_2ljv1"]
+lightmap_size_hint = Vector2i(17, 23)
+add_uv2 = true
+size = Vector3(2, 0.7, 0.7)
+
+[sub_resource type="BoxMesh" id="BoxMesh_hjjdm"]
+lightmap_size_hint = Vector2i(15, 21)
+add_uv2 = true
+size = Vector3(2, 0.5, 0.3)
+
+[sub_resource type="BoxMesh" id="BoxMesh_f48jk"]
+lightmap_size_hint = Vector2i(15, 21)
+add_uv2 = true
+size = Vector3(2, 0.5, 0.3)
+
+[node name="Bench" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_2ljv1")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.097, 0.8)
+mesh = SubResource("BoxMesh_hjjdm")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.097, -0.8)
+mesh = SubResource("BoxMesh_f48jk")
